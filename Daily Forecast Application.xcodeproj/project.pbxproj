@@ -12,6 +12,11 @@
 		364CD62726C6CEC0004164F0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 364CD62526C6CEC0004164F0 /* LaunchScreen.storyboard */; };
 		364CD63426C6CFD1004164F0 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 364CD63226C6CFD1004164F0 /* HomeViewController.swift */; };
 		364CD63526C6CFD1004164F0 /* HomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 364CD63326C6CFD1004164F0 /* HomeViewController.xib */; };
+		364CD64826C6D190004164F0 /* HomeInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 364CD64726C6D190004164F0 /* HomeInteractor.swift */; };
+		364CD64C26C6D1A3004164F0 /* HomePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 364CD64B26C6D1A3004164F0 /* HomePresenter.swift */; };
+		364CD64F26C6D1AC004164F0 /* HomeRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 364CD64E26C6D1AC004164F0 /* HomeRouter.swift */; };
+		364CD65226C6D1BA004164F0 /* HomeUIModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 364CD65126C6D1BA004164F0 /* HomeUIModel.swift */; };
+		364CD65526C6D1C6004164F0 /* HomeContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = 364CD65426C6D1C6004164F0 /* HomeContract.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +27,11 @@
 		364CD62826C6CEC0004164F0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		364CD63226C6CFD1004164F0 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		364CD63326C6CFD1004164F0 /* HomeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeViewController.xib; sourceTree = "<group>"; };
+		364CD64726C6D190004164F0 /* HomeInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeInteractor.swift; sourceTree = "<group>"; };
+		364CD64B26C6D1A3004164F0 /* HomePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePresenter.swift; sourceTree = "<group>"; };
+		364CD64E26C6D1AC004164F0 /* HomeRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeRouter.swift; sourceTree = "<group>"; };
+		364CD65126C6D1BA004164F0 /* HomeUIModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeUIModel.swift; sourceTree = "<group>"; };
+		364CD65426C6D1C6004164F0 /* HomeContract.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeContract.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,14 +64,131 @@
 		364CD61926C6CEBC004164F0 /* Daily Forecast Application */ = {
 			isa = PBXGroup;
 			children = (
-				364CD61A26C6CEBC004164F0 /* AppDelegate.swift */,
-				364CD62326C6CEC0004164F0 /* Assets.xcassets */,
-				364CD62526C6CEC0004164F0 /* LaunchScreen.storyboard */,
+				364CD63726C6D0A7004164F0 /* Supporting Files */,
+				364CD63826C6D0BA004164F0 /* Resources */,
+				364CD63926C6D0D2004164F0 /* Service */,
+				364CD63E26C6D0F1004164F0 /* Modules */,
+			);
+			path = "Daily Forecast Application";
+			sourceTree = "<group>";
+		};
+		364CD63726C6D0A7004164F0 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
 				364CD62826C6CEC0004164F0 /* Info.plist */,
+				364CD61A26C6CEBC004164F0 /* AppDelegate.swift */,
+			);
+			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		364CD63826C6D0BA004164F0 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				364CD62326C6CEC0004164F0 /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		364CD63926C6D0D2004164F0 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				364CD63A26C6D0DA004164F0 /* Local */,
+				364CD63B26C6D0E0004164F0 /* Remote */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		364CD63A26C6D0DA004164F0 /* Local */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Local;
+			sourceTree = "<group>";
+		};
+		364CD63B26C6D0E0004164F0 /* Remote */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Remote;
+			sourceTree = "<group>";
+		};
+		364CD63E26C6D0F1004164F0 /* Modules */ = {
+			isa = PBXGroup;
+			children = (
+				364CD64026C6D10B004164F0 /* Home */,
+				364CD63F26C6D0FB004164F0 /* LaunchScreen */,
+			);
+			path = Modules;
+			sourceTree = "<group>";
+		};
+		364CD63F26C6D0FB004164F0 /* LaunchScreen */ = {
+			isa = PBXGroup;
+			children = (
+				364CD62526C6CEC0004164F0 /* LaunchScreen.storyboard */,
+			);
+			path = LaunchScreen;
+			sourceTree = "<group>";
+		};
+		364CD64026C6D10B004164F0 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				364CD64626C6D14F004164F0 /* Contract */,
+				364CD64526C6D134004164F0 /* UIModel */,
+				364CD64426C6D12D004164F0 /* Router */,
+				364CD64326C6D124004164F0 /* Presenter */,
+				364CD64226C6D116004164F0 /* Interactor */,
+				364CD64126C6D111004164F0 /* View */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		364CD64126C6D111004164F0 /* View */ = {
+			isa = PBXGroup;
+			children = (
 				364CD63226C6CFD1004164F0 /* HomeViewController.swift */,
 				364CD63326C6CFD1004164F0 /* HomeViewController.xib */,
 			);
-			path = "Daily Forecast Application";
+			path = View;
+			sourceTree = "<group>";
+		};
+		364CD64226C6D116004164F0 /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+				364CD64726C6D190004164F0 /* HomeInteractor.swift */,
+			);
+			path = Interactor;
+			sourceTree = "<group>";
+		};
+		364CD64326C6D124004164F0 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				364CD64B26C6D1A3004164F0 /* HomePresenter.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		364CD64426C6D12D004164F0 /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				364CD64E26C6D1AC004164F0 /* HomeRouter.swift */,
+			);
+			path = Router;
+			sourceTree = "<group>";
+		};
+		364CD64526C6D134004164F0 /* UIModel */ = {
+			isa = PBXGroup;
+			children = (
+				364CD65126C6D1BA004164F0 /* HomeUIModel.swift */,
+			);
+			path = UIModel;
+			sourceTree = "<group>";
+		};
+		364CD64626C6D14F004164F0 /* Contract */ = {
+			isa = PBXGroup;
+			children = (
+				364CD65426C6D1C6004164F0 /* HomeContract.swift */,
+			);
+			path = Contract;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -135,7 +262,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				364CD61B26C6CEBC004164F0 /* AppDelegate.swift in Sources */,
+				364CD64826C6D190004164F0 /* HomeInteractor.swift in Sources */,
+				364CD65226C6D1BA004164F0 /* HomeUIModel.swift in Sources */,
+				364CD65526C6D1C6004164F0 /* HomeContract.swift in Sources */,
 				364CD63426C6CFD1004164F0 /* HomeViewController.swift in Sources */,
+				364CD64C26C6D1A3004164F0 /* HomePresenter.swift in Sources */,
+				364CD64F26C6D1AC004164F0 /* HomeRouter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -276,7 +408,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 7RFTDZPJ23;
-				INFOPLIST_FILE = "Daily Forecast Application/Info.plist";
+				INFOPLIST_FILE = "Daily Forecast Application/Supporting Files/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -296,7 +428,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 7RFTDZPJ23;
-				INFOPLIST_FILE = "Daily Forecast Application/Info.plist";
+				INFOPLIST_FILE = "Daily Forecast Application/Supporting Files/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
