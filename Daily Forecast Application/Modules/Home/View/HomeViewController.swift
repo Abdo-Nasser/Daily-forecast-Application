@@ -8,29 +8,24 @@
 import UIKit
 
 class HomeViewController: UIViewController {
-    //MARK: - Attributes
+    
+    // MARK: - Outlets
+    @IBOutlet private weak var textField: UITextField!
+    @IBOutlet private weak var tableView: UITableView!
+    @IBOutlet private weak var notAccurateView: UIView!
+    @IBOutlet private weak var errorView: UIView!
+    @IBOutlet private weak var writeCityNameLabel: UILabel!
+    
+    // MARK: - Attributes
     var presenter: HomePresenterProtocol?
     
-    //MARK: - Outlets
-    @IBOutlet weak var textField: UITextField!
-    @IBOutlet weak var tableView: UITableView!
-    @IBOutlet weak var notAccurateView: UIView!
-    @IBOutlet weak var errorView: UIView!
-    @IBOutlet weak var writeCityNameLabel: UILabel!
-    
-    //MARK: - LifeCycle
+    // MARK: - LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
     }
     
-    private func setupUI(){
-        registerTableViewCell()
-        setupTableViewDelegates()
-        textField.delegate = self
-    }
-    
-    //MARK: - Actions
+    // MARK: - Actions
     @IBAction func searchAction(_ sender: Any) {
         guard let text = textField.text else { return }
         
@@ -45,34 +40,46 @@ class HomeViewController: UIViewController {
     }
 }
 
+// MARK: - HomeViewControllerProtocol Methods
 extension HomeViewController: HomeViewControllerProtocol{
     func updateUI() {
         notAccurateView.isHidden = !(presenter?.uiModel.dataSourceType.rawValue == DataSourceType.local.rawValue)
-        writeCityNameLabel.isHidden = true
-        tableView.isHidden = false
+        
         errorView.isHidden = true
+        tableView.isHidden = false
+        writeCityNameLabel.isHidden = true
+        
         tableView.reloadData()
     }
     
-    func showErrorView(){
-        writeCityNameLabel.isHidden = true
+    func showErrorView() {
         tableView.isHidden = true
         errorView.isHidden = false
+        writeCityNameLabel.isHidden = true
     }
 }
 
-//MARK: - TableView Delegate and DataSource
-extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
+// MARK: - Helper Methods
+extension HomeViewController {
+    private func setupUI() {
+        textField.delegate = self
+        
+        registerTableViewCell()
+        setupTableViewDelegates()
+    }
     
-    private func setupTableViewDelegates(){
+    private func setupTableViewDelegates() {
         tableView.delegate = self
         tableView.dataSource = self
     }
     
-    private func registerTableViewCell(){
+    private func registerTableViewCell() {
         tableView.register(HomeTableViewCell.nib, forCellReuseIdentifier: HomeTableViewCell.identifier)
     }
-    
+}
+
+// MARK: - TableView Delegate and DataSource
+extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return presenter?.uiModel.weather?.weatherList?.count ?? 0
     }
@@ -84,9 +91,7 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     }
 }
 
-
-
-//MARK: - TableView Delegate and DataSource
+// MARK: - TableView Delegate and DataSource
 extension HomeViewController: UITextFieldDelegate {
     
     func textFieldDidEndEditing(_ textField: UITextField) {

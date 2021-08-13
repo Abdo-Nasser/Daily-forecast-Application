@@ -9,9 +9,11 @@ import UIKit
 
 class HomeRouter: HomeRouterProtocol {
     
+    // MARK: - Attributes
     weak var view: UIViewController?
     
-    static func createHomeModule() -> UIViewController{
+    // MARK: - Assemble Method
+    static func createHomeModule() -> UIViewController {
         let view = HomeViewController()
         let uiModel = HomeUIModel()
         let router = HomeRouter()

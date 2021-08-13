@@ -24,7 +24,7 @@ class HomeInteractor: HomeInteractorProtocol {
 extension HomeInteractor {
     
     private func handleFetchingWeatherSuccess(data: (weather: Weather, dataSourceType: DataSourceType), cityName: String, completion: (Result<(weather: Weather, dataSourceType: DataSourceType), Error>) -> Void) {
-        // save data
+       
         if let list = data.weather.weatherList, !list.isEmpty {
             setWeather(data: data.weather)
             completion(.success(data))
@@ -35,7 +35,6 @@ extension HomeInteractor {
     }
     
     private func handleFetchingWeatherFailure(error: Error?, cityName: String,  completion: (Result<(weather: Weather, dataSourceType: DataSourceType), Error>) -> Void) {
-        // check error type
         getWeatherFromLocalService(cityName: cityName, completion: completion)
     }
 }

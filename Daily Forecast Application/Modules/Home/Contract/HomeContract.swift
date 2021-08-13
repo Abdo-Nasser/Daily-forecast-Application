@@ -24,7 +24,7 @@ protocol HomePresenterProtocol: class {
 }
 
 // MARK: - Interactor
-protocol HomeInteractorProtocol: HomeNetworkingServiceProtocol, RealmServiceProtocol{
+protocol HomeInteractorProtocol: HomeNetworkingServiceProtocol, RealmServiceProtocol {
     func getCityWeather(cityName: String, completion: @escaping (Result<(weather: Weather, dataSourceType: DataSourceType), Error>) -> Void)
 }
 

@@ -7,13 +7,13 @@
 
 import Foundation
 
-struct HomeUIModel {
-    var dataSourceType: DataSourceType = .none
-    var weather: Weather? = nil
-}
-
 enum DataSourceType: String {
     case local
     case remote
     case none
+}
+
+struct HomeUIModel {
+    var dataSourceType: DataSourceType = .none
+    var weather: Weather? = nil
 }

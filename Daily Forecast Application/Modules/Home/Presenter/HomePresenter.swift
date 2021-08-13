@@ -7,13 +7,15 @@
 
 import Foundation
 
-class HomePresenter: HomePresenterProtocol {
-    //MARK: - Attributes
+class HomePresenter {
+    
+    // MARK: - Attributes
     weak var view: HomeViewControllerProtocol?
     var interactor:  HomeInteractorProtocol
     var router:  HomeRouterProtocol
     var uiModel:  HomeUIModel
     
+    // MARK: - Initializer
     init(view:  HomeViewControllerProtocol,
          interactor:  HomeInteractorProtocol,
          router:  HomeRouterProtocol,
@@ -23,7 +25,10 @@ class HomePresenter: HomePresenterProtocol {
         self.router = router
         self.uiModel = uiModel
     }
-    
+}
+
+// MARK: - HomePresenterProtocol Methods
+extension HomePresenter: HomePresenterProtocol {
     func getCityWeather(cityName: String) {
         interactor.getCityWeather(cityName: cityName) { [weak self] (result) in
             switch result {
@@ -31,8 +36,7 @@ class HomePresenter: HomePresenterProtocol {
                 self?.uiModel.dataSourceType = response.dataSourceType
                 self?.uiModel.weather = response.weather
                 self?.view?.updateUI()
-            case .failure(let error):
-                print(error)
+            case .failure:
                 self?.view?.showErrorView()
             }
         }
