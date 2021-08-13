@@ -25,6 +25,9 @@
 		364CD67C26C6D5BC004164F0 /* HomeNetworkingServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 364CD67B26C6D5BC004164F0 /* HomeNetworkingServiceProtocol.swift */; };
 		364CD68126C6D5F5004164F0 /* Weather.swift in Sources */ = {isa = PBXBuildFile; fileRef = 364CD68026C6D5F5004164F0 /* Weather.swift */; };
 		364CD68626C6D6BF004164F0 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 364CD68526C6D6BF004164F0 /* Constants.swift */; };
+		364CD68A26C6D794004164F0 /* RealmService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 364CD68926C6D794004164F0 /* RealmService.swift */; };
+		364CD68E26C6D7B9004164F0 /* RealmServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 364CD68D26C6D7B9004164F0 /* RealmServiceProtocol.swift */; };
+		364CD69126C6D801004164F0 /* WeatherRealmEntities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 364CD69026C6D801004164F0 /* WeatherRealmEntities.swift */; };
 		97BDCCCFE2DADF002C35DCE9 /* Pods_Daily_Forecast_Application.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB4E38BD187368CE21AF8104 /* Pods_Daily_Forecast_Application.framework */; };
 /* End PBXBuildFile section */
 
@@ -49,6 +52,9 @@
 		364CD67B26C6D5BC004164F0 /* HomeNetworkingServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeNetworkingServiceProtocol.swift; sourceTree = "<group>"; };
 		364CD68026C6D5F5004164F0 /* Weather.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Weather.swift; sourceTree = "<group>"; };
 		364CD68526C6D6BF004164F0 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		364CD68926C6D794004164F0 /* RealmService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmService.swift; sourceTree = "<group>"; };
+		364CD68D26C6D7B9004164F0 /* RealmServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmServiceProtocol.swift; sourceTree = "<group>"; };
+		364CD69026C6D801004164F0 /* WeatherRealmEntities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherRealmEntities.swift; sourceTree = "<group>"; };
 		D7E3A16348E5638DFE798EFC /* Pods-Daily Forecast Application.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Daily Forecast Application.debug.xcconfig"; path = "Target Support Files/Pods-Daily Forecast Application/Pods-Daily Forecast Application.debug.xcconfig"; sourceTree = "<group>"; };
 		F44E1098DD5DEC120DD013BC /* Pods-Daily Forecast Application.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Daily Forecast Application.release.xcconfig"; path = "Target Support Files/Pods-Daily Forecast Application/Pods-Daily Forecast Application.release.xcconfig"; sourceTree = "<group>"; };
 		FB4E38BD187368CE21AF8104 /* Pods_Daily_Forecast_Application.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Daily_Forecast_Application.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -126,6 +132,7 @@
 		364CD63A26C6D0DA004164F0 /* Local */ = {
 			isa = PBXGroup;
 			children = (
+				364CD68826C6D778004164F0 /* Realm */,
 			);
 			path = Local;
 			sourceTree = "<group>";
@@ -258,6 +265,7 @@
 			isa = PBXGroup;
 			children = (
 				364CD68026C6D5F5004164F0 /* Weather.swift */,
+				364CD69026C6D801004164F0 /* WeatherRealmEntities.swift */,
 			);
 			path = Weather;
 			sourceTree = "<group>";
@@ -276,6 +284,15 @@
 				364CD68526C6D6BF004164F0 /* Constants.swift */,
 			);
 			path = Constants;
+			sourceTree = "<group>";
+		};
+		364CD68826C6D778004164F0 /* Realm */ = {
+			isa = PBXGroup;
+			children = (
+				364CD68926C6D794004164F0 /* RealmService.swift */,
+				364CD68D26C6D7B9004164F0 /* RealmServiceProtocol.swift */,
+			);
+			path = Realm;
 			sourceTree = "<group>";
 		};
 		BE90CB06E3F12DE1E8F7D45C /* Pods */ = {
@@ -420,10 +437,13 @@
 				364CD65526C6D1C6004164F0 /* HomeContract.swift in Sources */,
 				364CD66E26C6D42A004164F0 /* MoyaServiceHelper.swift in Sources */,
 				364CD67626C6D4A4004164F0 /* HomeAPI.swift in Sources */,
+				364CD68E26C6D7B9004164F0 /* RealmServiceProtocol.swift in Sources */,
 				364CD63426C6CFD1004164F0 /* HomeViewController.swift in Sources */,
+				364CD69126C6D801004164F0 /* WeatherRealmEntities.swift in Sources */,
 				364CD64C26C6D1A3004164F0 /* HomePresenter.swift in Sources */,
 				364CD67226C6D44A004164F0 /* BaseAPIHeadersProtocol.swift in Sources */,
 				364CD64F26C6D1AC004164F0 /* HomeRouter.swift in Sources */,
+				364CD68A26C6D794004164F0 /* RealmService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
