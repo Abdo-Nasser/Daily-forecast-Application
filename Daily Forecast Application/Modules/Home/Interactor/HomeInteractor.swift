@@ -8,4 +8,42 @@
 import Foundation
 
 class HomeInteractor: HomeInteractorProtocol {
+    func getCityWeather(cityName: String, completion: @escaping (Result<(weather: Weather, dataSourceType: DataSourceType), Error>) -> Void) {
+        fetchWeatherForCity(name: cityName) { [weak self] result in
+            switch result {
+            case .success(let data):
+                self?.handleFetchingWeatherSuccess(data: (data, .remote), completion: completion)
+            case .failure(let error):
+                self?.handleFetchingWeatherFailure(error: error, cityName: cityName, completion: completion)
+            }
+        }
+    }
 }
+
+// MARK: - Data Handler
+extension HomeInteractor {
+    
+    private func handleFetchingWeatherSuccess(data: (weather: Weather, dataSourceType: DataSourceType), completion: (Result<(weather: Weather, dataSourceType: DataSourceType), Error>) -> Void) {
+        // save data
+        setWeather(data: data.weather)
+        completion(.success(data))
+    }
+    
+    private func handleFetchingWeatherFailure(error: Error?, cityName: String,  completion: (Result<(weather: Weather, dataSourceType: DataSourceType), Error>) -> Void) {
+        // check error type
+        getWeatherFromLocalService(cityName: cityName, completion: completion)
+    }
+}
+
+// MARK: - Local Data Methods
+extension HomeInteractor {
+    private func getWeatherFromLocalService(cityName: String, completion: (Result<(weather: Weather, dataSourceType: DataSourceType), Error>) -> Void){
+        if let weather = getWeather(cityName: cityName) {
+            completion(.success((weather, .local)))
+        } else {
+            completion(.failure(NSError(domain: "", code: 1, userInfo: nil)))
+        }
+    }
+}
+
+

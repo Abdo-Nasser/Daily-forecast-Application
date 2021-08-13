@@ -42,7 +42,7 @@ extension HomeAPI: TargetType, BaseAPIHeadersProtocol {
     var task: Task {
         switch self {
         case .getWeatherForCity(let name):
-            return .requestParameters(parameters: ["name": name, "appid": Constant.apiKey], encoding: URLEncoding.default)
+            return .requestParameters(parameters: ["q": name, "appid": Constant.apiKey], encoding: URLEncoding.default)
         }
     }
 }

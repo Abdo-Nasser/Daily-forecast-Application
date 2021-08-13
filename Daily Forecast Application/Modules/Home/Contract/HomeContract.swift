@@ -19,10 +19,13 @@ protocol HomeRouterProtocol {
 // MARK: - Presenter
 protocol HomePresenterProtocol: class {
     var uiModel: HomeUIModel { get }
+    
+    func getCityWeather(cityName: String)
 }
 
 // MARK: - Interactor
-protocol HomeInteractorProtocol: class{
+protocol HomeInteractorProtocol: HomeNetworkingServiceProtocol, RealmServiceProtocol{
+    func getCityWeather(cityName: String, completion: @escaping (Result<(weather: Weather, dataSourceType: DataSourceType), Error>) -> Void)
 }
 
 // MARK: - ViewProtocol

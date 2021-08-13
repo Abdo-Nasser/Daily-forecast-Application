@@ -24,4 +24,16 @@ class HomePresenter: HomePresenterProtocol {
         self.uiModel = uiModel
     }
     
+    func getCityWeather(cityName: String) {
+        interactor.getCityWeather(cityName: cityName) { [weak self] (result) in
+            switch result {
+            case .success(let response):
+                self?.uiModel.dataSourceType = response.dataSourceType
+                self?.uiModel.weather = response.weather
+                print(response)
+            case .failure(let error):
+                print(error)
+            }
+        }
+    }
 }
