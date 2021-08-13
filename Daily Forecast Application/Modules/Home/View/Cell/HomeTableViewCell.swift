@@ -18,7 +18,7 @@ class HomeTableViewCell: UITableViewCell {
         super.awakeFromNib()
     }
     
-    func configure(weather: WeatherList){
+    func configure(weather: WeatherList) {
         stateLabel.text = weather.weatherDetails?.first?.description ?? ""
         tempValueLabel.text = "\(weather.mainDetails?.temp ?? 0)"
         pressureValueLabel.text = "\(weather.mainDetails?.pressure ?? 0)"

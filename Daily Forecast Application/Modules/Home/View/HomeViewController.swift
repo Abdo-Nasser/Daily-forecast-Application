@@ -16,30 +16,48 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var notAccurateView: UIView!
     @IBOutlet weak var errorView: UIView!
+    @IBOutlet weak var writeCityNameLabel: UILabel!
     
     //MARK: - LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
-        presenter?.getCityWeather(cityName: "cairo")
     }
     
     private func setupUI(){
         registerTableViewCell()
         setupTableViewDelegates()
+        textField.delegate = self
     }
     
     //MARK: - Actions
     @IBAction func searchAction(_ sender: Any) {
+        guard let text = textField.text else { return }
+        
+        view.endEditing(true)
+        let isValidText = !text.isEmpty
+        writeCityNameLabel.isHidden = isValidText
+        presenter?.getCityWeather(cityName: text)
     }
     
     @IBAction func retryAction(_ sender: Any) {
+        presenter?.getCityWeather(cityName: textField.text ?? "")
     }
 }
 
 extension HomeViewController: HomeViewControllerProtocol{
     func updateUI() {
+        notAccurateView.isHidden = !(presenter?.uiModel.dataSourceType.rawValue == DataSourceType.local.rawValue)
+        writeCityNameLabel.isHidden = true
+        tableView.isHidden = false
+        errorView.isHidden = true
         tableView.reloadData()
+    }
+    
+    func showErrorView(){
+        writeCityNameLabel.isHidden = true
+        tableView.isHidden = true
+        errorView.isHidden = false
     }
 }
 
@@ -63,5 +81,24 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: HomeTableViewCell.identifier, for: indexPath) as! HomeTableViewCell
         cell.configure(weather: presenter?.uiModel.weather?.weatherList?[indexPath.row] ?? WeatherList())
         return cell
+    }
+}
+
+
+
+//MARK: - TableView Delegate and DataSource
+extension HomeViewController: UITextFieldDelegate {
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        self.view.endEditing(true)
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
     }
 }

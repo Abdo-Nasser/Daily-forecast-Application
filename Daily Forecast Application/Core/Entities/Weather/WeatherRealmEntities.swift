@@ -27,7 +27,7 @@ class WeatherListEntity: Object {
 }
 
 class MainDetailsEntity: Object {
-    dynamic var pressure: Double? = 0
+    @objc dynamic var pressure: Double = 0
     @objc dynamic var temp: Double = 0
     @objc dynamic var humidity: Double = 0
 }
@@ -64,6 +64,6 @@ extension MainDetailsEntity {
 
 extension WeatherDetailsEntity {
     var toObject: WeatherDetails {
-        return WeatherDetails(id: self.id, state: self.state, description: self.description)
+        return WeatherDetails(id: self.id, state: self.state, description: self.weatherDescription)
     }
 }

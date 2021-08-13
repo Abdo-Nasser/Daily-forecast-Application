@@ -12,7 +12,7 @@ struct HomeUIModel {
     var weather: Weather? = nil
 }
 
-enum DataSourceType {
+enum DataSourceType: String {
     case local
     case remote
     case none

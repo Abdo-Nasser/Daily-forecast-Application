@@ -33,4 +33,5 @@ protocol HomeViewControllerProtocol: class {
     var presenter: HomePresenterProtocol? { get set }
     
     func updateUI()
+    func showErrorView()
 }

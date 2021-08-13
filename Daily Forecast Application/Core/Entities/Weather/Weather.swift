@@ -57,7 +57,9 @@ struct WeatherDetails: Codable {
     var description: String? = ""
     
     enum CodingKeys: String, CodingKey {
-        case id, state, description
+        case id = "id"
+        case state = "main"
+        case description = "description"
     }
 }
 

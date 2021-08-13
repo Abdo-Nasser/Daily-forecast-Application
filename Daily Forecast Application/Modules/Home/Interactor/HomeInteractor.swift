@@ -12,7 +12,7 @@ class HomeInteractor: HomeInteractorProtocol {
         fetchWeatherForCity(name: cityName) { [weak self] result in
             switch result {
             case .success(let data):
-                self?.handleFetchingWeatherSuccess(data: (data, .remote), completion: completion)
+                self?.handleFetchingWeatherSuccess(data: (data, .remote), cityName: cityName, completion: completion)
             case .failure(let error):
                 self?.handleFetchingWeatherFailure(error: error, cityName: cityName, completion: completion)
             }
@@ -23,10 +23,15 @@ class HomeInteractor: HomeInteractorProtocol {
 // MARK: - Data Handler
 extension HomeInteractor {
     
-    private func handleFetchingWeatherSuccess(data: (weather: Weather, dataSourceType: DataSourceType), completion: (Result<(weather: Weather, dataSourceType: DataSourceType), Error>) -> Void) {
+    private func handleFetchingWeatherSuccess(data: (weather: Weather, dataSourceType: DataSourceType), cityName: String, completion: (Result<(weather: Weather, dataSourceType: DataSourceType), Error>) -> Void) {
         // save data
-        setWeather(data: data.weather)
-        completion(.success(data))
+        if let list = data.weather.weatherList, !list.isEmpty {
+            setWeather(data: data.weather)
+            completion(.success(data))
+        } else {
+            let error = NSError(domain: "Empty Data", code: 0, userInfo: [:])
+            self.handleFetchingWeatherFailure(error: error, cityName: cityName, completion: completion)
+        }
     }
     
     private func handleFetchingWeatherFailure(error: Error?, cityName: String,  completion: (Result<(weather: Weather, dataSourceType: DataSourceType), Error>) -> Void) {

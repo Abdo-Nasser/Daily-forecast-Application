@@ -31,9 +31,9 @@ class HomePresenter: HomePresenterProtocol {
                 self?.uiModel.dataSourceType = response.dataSourceType
                 self?.uiModel.weather = response.weather
                 self?.view?.updateUI()
-                print(response)
             case .failure(let error):
                 print(error)
+                self?.view?.showErrorView()
             }
         }
     }
