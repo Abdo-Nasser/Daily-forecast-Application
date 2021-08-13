@@ -8,7 +8,6 @@
 import UIKit
 
 class HomeTableViewCell: UITableViewCell {
-    
     //MARK: - Outlets
     @IBOutlet weak var stateLabel: UILabel!
     @IBOutlet weak var tempValueLabel: UILabel!
@@ -20,7 +19,7 @@ class HomeTableViewCell: UITableViewCell {
     }
     
     func configure(weather: WeatherList){
-        stateLabel.text = weather.weatherDetails?.first?.state ?? ""
+        stateLabel.text = weather.weatherDetails?.first?.description ?? ""
         tempValueLabel.text = "\(weather.mainDetails?.temp ?? 0)"
         pressureValueLabel.text = "\(weather.mainDetails?.pressure ?? 0)"
         humidityValueLabel.text = "\(weather.mainDetails?.humidity ?? 0)"

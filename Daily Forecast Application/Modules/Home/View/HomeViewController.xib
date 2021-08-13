@@ -5,7 +5,6 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -23,31 +22,32 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="pt8-61-vPC">
-                    <rect key="frame" x="20" y="79" width="374" height="783"/>
+                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="pt8-61-vPC">
+                    <rect key="frame" x="20" y="89" width="374" height="773"/>
                     <subviews>
-                        <tableView hidden="YES" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="lbM-C9-Y2e">
-                            <rect key="frame" x="0.0" y="0.0" width="374" height="0.0"/>
-                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <tableView clipsSubviews="YES" contentMode="scaleToFill" bounces="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="lbM-C9-Y2e">
+                            <rect key="frame" x="0.0" y="0.0" width="374" height="773"/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </tableView>
-                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rfl-bw-TJt">
-                            <rect key="frame" x="0.0" y="0.0" width="374" height="783"/>
+                        <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rfl-bw-TJt">
+                            <rect key="frame" x="0.0" y="0.0" width="374" height="0.0"/>
                             <subviews>
                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="error-icon" translatesAutoresizingMaskIntoConstraints="NO" id="D3Y-dM-dLr">
-                                    <rect key="frame" x="123" y="287.5" width="128" height="128"/>
+                                    <rect key="frame" x="123" y="-104" width="128" height="128"/>
                                     <constraints>
                                         <constraint firstAttribute="width" secondItem="D3Y-dM-dLr" secondAttribute="height" multiplier="1:1" id="Tho-Be-zsk"/>
                                         <constraint firstAttribute="width" constant="128" id="Tyj-3c-vXT"/>
                                     </constraints>
                                 </imageView>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sorry, There's an Error  " textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q6k-Dr-I0B">
-                                    <rect key="frame" x="20" y="435.5" width="334" height="20.5"/>
+                                    <rect key="frame" x="20" y="44" width="334" height="20.5"/>
                                     <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
                                     <nil key="textColor"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qCZ-NW-Dxp">
-                                    <rect key="frame" x="127" y="501" width="120" height="40"/>
+                                    <rect key="frame" x="127" y="109.5" width="120" height="40"/>
                                     <color key="backgroundColor" red="0.99667149779999997" green="0.57721596959999999" blue="0.55292284489999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="40" id="FpG-Mz-Exf"/>
@@ -80,6 +80,11 @@
                             </constraints>
                         </view>
                     </subviews>
+                    <constraints>
+                        <constraint firstItem="lbM-C9-Y2e" firstAttribute="top" secondItem="rfl-bw-TJt" secondAttribute="top" id="55u-VF-pZu"/>
+                        <constraint firstItem="lbM-C9-Y2e" firstAttribute="leading" secondItem="pt8-61-vPC" secondAttribute="leading" id="7I0-PB-Kye"/>
+                        <constraint firstItem="lbM-C9-Y2e" firstAttribute="leading" secondItem="rfl-bw-TJt" secondAttribute="leading" id="utH-uA-US8"/>
+                    </constraints>
                 </stackView>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1jL-LI-UM6">
                     <rect key="frame" x="0.0" y="44" width="414" height="35"/>
@@ -97,6 +102,8 @@
                         </button>
                         <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="KxG-wY-eRZ">
                             <rect key="frame" x="20" y="0.5" width="329" height="34"/>
+                            <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                             <textInputTraits key="textInputTraits"/>
                         </textField>
@@ -144,7 +151,7 @@
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="pt8-61-vPC" secondAttribute="trailing" constant="20" id="cxd-jX-pya"/>
                 <constraint firstItem="pt8-61-vPC" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="gNH-aX-2Yd"/>
                 <constraint firstItem="bNd-Ch-8Au" firstAttribute="top" secondItem="1jL-LI-UM6" secondAttribute="bottom" constant="15" id="pJG-wE-iEh"/>
-                <constraint firstItem="pt8-61-vPC" firstAttribute="top" secondItem="1jL-LI-UM6" secondAttribute="bottom" id="tqS-A6-JWZ"/>
+                <constraint firstItem="pt8-61-vPC" firstAttribute="top" secondItem="1jL-LI-UM6" secondAttribute="bottom" constant="10" id="tqS-A6-JWZ"/>
                 <constraint firstItem="pt8-61-vPC" firstAttribute="bottom" secondItem="fnl-2z-Ty3" secondAttribute="bottom" id="xWA-Ip-Fgp"/>
                 <constraint firstItem="1jL-LI-UM6" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="yGV-vG-bLi"/>
             </constraints>
@@ -154,8 +161,5 @@
     <resources>
         <image name="error-icon" width="256" height="256"/>
         <image name="search-icon" width="256" height="256"/>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
     </resources>
 </document>

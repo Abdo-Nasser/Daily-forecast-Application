@@ -25,6 +25,7 @@ class HomeViewController: UIViewController {
     }
     
     private func setupUI(){
+        registerTableViewCell()
         setupTableViewDelegates()
     }
     
@@ -38,6 +39,7 @@ class HomeViewController: UIViewController {
 
 extension HomeViewController: HomeViewControllerProtocol{
     func updateUI() {
+        tableView.reloadData()
     }
 }
 
@@ -45,8 +47,8 @@ extension HomeViewController: HomeViewControllerProtocol{
 extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     
     private func setupTableViewDelegates(){
-        tableView.dataSource = self
         tableView.delegate = self
+        tableView.dataSource = self
     }
     
     private func registerTableViewCell(){
