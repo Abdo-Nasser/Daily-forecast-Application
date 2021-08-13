@@ -13,8 +13,7 @@ enum HomeAPI {
 
 extension HomeAPI: TargetType, BaseAPIHeadersProtocol {
     var baseURL: URL {
-        // set baseURL
-        let stringURL = "baseURL"
+        let stringURL = Constant.baseURL
         guard let url = URL(string: stringURL) else { fatalError("stringURL could not be configured") }
         return url
     }
@@ -42,8 +41,8 @@ extension HomeAPI: TargetType, BaseAPIHeadersProtocol {
     
     var task: Task {
         switch self {
-        case .getWeatherForCity(_):
-            return .requestParameters(parameters: [:], encoding: URLEncoding.default)
+        case .getWeatherForCity(let name):
+            return .requestParameters(parameters: ["name": name, "appid": Constant.apiKey], encoding: URLEncoding.default)
         }
     }
 }
