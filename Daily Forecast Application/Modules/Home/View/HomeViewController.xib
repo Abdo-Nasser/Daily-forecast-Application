@@ -67,7 +67,7 @@
                                     </connections>
                                 </button>
                             </subviews>
-                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <constraints>
                                 <constraint firstItem="qCZ-NW-Dxp" firstAttribute="centerX" secondItem="rfl-bw-TJt" secondAttribute="centerX" id="5n5-La-nkV"/>
                                 <constraint firstItem="D3Y-dM-dLr" firstAttribute="centerY" secondItem="rfl-bw-TJt" secondAttribute="centerY" constant="-40" id="GcA-gV-Vhq"/>
@@ -101,7 +101,7 @@
                             <textInputTraits key="textInputTraits"/>
                         </textField>
                     </subviews>
-                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
                         <constraint firstItem="KxG-wY-eRZ" firstAttribute="centerY" secondItem="1jL-LI-UM6" secondAttribute="centerY" id="BUJ-9s-DPB"/>
                         <constraint firstItem="KxG-wY-eRZ" firstAttribute="leading" secondItem="1jL-LI-UM6" secondAttribute="leading" constant="20" id="JlK-d2-xxj"/>
@@ -135,7 +135,7 @@
                 </view>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
-            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <color key="backgroundColor" red="0.90811696875726766" green="0.90851159571750828" blue="0.93159376937360405" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
             <constraints>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="1jL-LI-UM6" secondAttribute="trailing" id="3My-KM-jJY"/>
                 <constraint firstItem="bNd-Ch-8Au" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="30" id="J5H-dp-Dnm"/>

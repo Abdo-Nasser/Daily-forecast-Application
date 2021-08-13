@@ -25,7 +25,7 @@ class HomeViewController: UIViewController {
     }
     
     private func setupUI(){
-        
+        setupTableViewDelegates()
     }
     
     //MARK: - Actions
@@ -38,5 +38,28 @@ class HomeViewController: UIViewController {
 
 extension HomeViewController: HomeViewControllerProtocol{
     func updateUI() {
+    }
+}
+
+//MARK: - TableView Delegate and DataSource
+extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
+    
+    private func setupTableViewDelegates(){
+        tableView.dataSource = self
+        tableView.delegate = self
+    }
+    
+    private func registerTableViewCell(){
+        tableView.register(HomeTableViewCell.nib, forCellReuseIdentifier: HomeTableViewCell.identifier)
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return presenter?.uiModel.weather?.weatherList?.count ?? 0
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: HomeTableViewCell.identifier, for: indexPath) as! HomeTableViewCell
+        cell.configure(weather: presenter?.uiModel.weather?.weatherList?[indexPath.row] ?? WeatherList())
+        return cell
     }
 }
