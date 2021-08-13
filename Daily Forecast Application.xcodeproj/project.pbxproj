@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -17,6 +17,9 @@
 		364CD64F26C6D1AC004164F0 /* HomeRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 364CD64E26C6D1AC004164F0 /* HomeRouter.swift */; };
 		364CD65226C6D1BA004164F0 /* HomeUIModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 364CD65126C6D1BA004164F0 /* HomeUIModel.swift */; };
 		364CD65526C6D1C6004164F0 /* HomeContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = 364CD65426C6D1C6004164F0 /* HomeContract.swift */; };
+		364CD66B26C6D409004164F0 /* Base.swift in Sources */ = {isa = PBXBuildFile; fileRef = 364CD66A26C6D409004164F0 /* Base.swift */; };
+		364CD66E26C6D42A004164F0 /* MoyaServiceHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 364CD66D26C6D42A004164F0 /* MoyaServiceHelper.swift */; };
+		364CD67226C6D44A004164F0 /* BaseAPIHeadersProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 364CD67126C6D44A004164F0 /* BaseAPIHeadersProtocol.swift */; };
 		97BDCCCFE2DADF002C35DCE9 /* Pods_Daily_Forecast_Application.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB4E38BD187368CE21AF8104 /* Pods_Daily_Forecast_Application.framework */; };
 /* End PBXBuildFile section */
 
@@ -33,6 +36,9 @@
 		364CD64E26C6D1AC004164F0 /* HomeRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeRouter.swift; sourceTree = "<group>"; };
 		364CD65126C6D1BA004164F0 /* HomeUIModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeUIModel.swift; sourceTree = "<group>"; };
 		364CD65426C6D1C6004164F0 /* HomeContract.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeContract.swift; sourceTree = "<group>"; };
+		364CD66A26C6D409004164F0 /* Base.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Base.swift; sourceTree = "<group>"; };
+		364CD66D26C6D42A004164F0 /* MoyaServiceHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoyaServiceHelper.swift; sourceTree = "<group>"; };
+		364CD67126C6D44A004164F0 /* BaseAPIHeadersProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseAPIHeadersProtocol.swift; sourceTree = "<group>"; };
 		D7E3A16348E5638DFE798EFC /* Pods-Daily Forecast Application.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Daily Forecast Application.debug.xcconfig"; path = "Target Support Files/Pods-Daily Forecast Application/Pods-Daily Forecast Application.debug.xcconfig"; sourceTree = "<group>"; };
 		F44E1098DD5DEC120DD013BC /* Pods-Daily Forecast Application.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Daily Forecast Application.release.xcconfig"; path = "Target Support Files/Pods-Daily Forecast Application/Pods-Daily Forecast Application.release.xcconfig"; sourceTree = "<group>"; };
 		FB4E38BD187368CE21AF8104 /* Pods_Daily_Forecast_Application.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Daily_Forecast_Application.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -202,8 +208,19 @@
 		364CD65926C6D2E7004164F0 /* Network */ = {
 			isa = PBXGroup;
 			children = (
+				364CD66926C6D3FC004164F0 /* Base */,
 			);
 			path = Network;
+			sourceTree = "<group>";
+		};
+		364CD66926C6D3FC004164F0 /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				364CD66A26C6D409004164F0 /* Base.swift */,
+				364CD66D26C6D42A004164F0 /* MoyaServiceHelper.swift */,
+				364CD67126C6D44A004164F0 /* BaseAPIHeadersProtocol.swift */,
+			);
+			path = Base;
 			sourceTree = "<group>";
 		};
 		BE90CB06E3F12DE1E8F7D45C /* Pods */ = {
@@ -212,7 +229,6 @@
 				D7E3A16348E5638DFE798EFC /* Pods-Daily Forecast Application.debug.xcconfig */,
 				F44E1098DD5DEC120DD013BC /* Pods-Daily Forecast Application.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -338,12 +354,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				364CD66B26C6D409004164F0 /* Base.swift in Sources */,
 				364CD61B26C6CEBC004164F0 /* AppDelegate.swift in Sources */,
 				364CD64826C6D190004164F0 /* HomeInteractor.swift in Sources */,
 				364CD65226C6D1BA004164F0 /* HomeUIModel.swift in Sources */,
 				364CD65526C6D1C6004164F0 /* HomeContract.swift in Sources */,
+				364CD66E26C6D42A004164F0 /* MoyaServiceHelper.swift in Sources */,
 				364CD63426C6CFD1004164F0 /* HomeViewController.swift in Sources */,
 				364CD64C26C6D1A3004164F0 /* HomePresenter.swift in Sources */,
+				364CD67226C6D44A004164F0 /* BaseAPIHeadersProtocol.swift in Sources */,
 				364CD64F26C6D1AC004164F0 /* HomeRouter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
